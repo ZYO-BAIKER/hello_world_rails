@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   resources :articles
-  get 'users/index'
+  resources :users
   get 'homes/index'
 end
