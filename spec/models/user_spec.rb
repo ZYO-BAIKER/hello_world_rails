@@ -26,11 +26,12 @@ RSpec.describe User, type: :model do
   # end
 
   context "既に同じ名前のaccountが存在しているとき" do
-    it "ユーザー作成失敗" do
-      create(:user,account:"abs")　# FactoryBotの記述を省略
-      user = build(:user,account:"abs")　# FactoryBotの記述を省略
+    before {create(:user,account:"abs")}
+    fit "ユーザー作成失敗" do
+      user = build(:user,account:"abs")
       expect(user).to be_invalid
       expect(user.errors.details[:account][0][:error]).to eq :taken
     end
   end
+
 end
