@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
+    @user = User.new(user_params)
     ## インスタンスを DB に保存する
     @user.save!
     ## json として値を返す
